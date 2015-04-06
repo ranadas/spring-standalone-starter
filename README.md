@@ -1,2 +1,2 @@
 # spring-standalone-starter
-Standalone maven for spring 4 project.
+Standalone spring 4 project in Maven.
