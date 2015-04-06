@@ -1,19 +1,14 @@
 package com.rdas.configurations;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.jdbc.datasource.init.DataSourceInitializer;
-import org.springframework.jdbc.datasource.init.DatabasePopulator;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
-import javax.sql.DataSource;
 import com.rdas.services.HelloWorldMessage;
 
 /**
@@ -39,13 +34,12 @@ public class AppConfig {
         dataSource.setUsername("sa");
         // P@ssw0rd
         dataSource.setPassword("");
-
         return dataSource;
     }
 
     @Bean(name = "embeddedDS")
-    public DataSource dataSourceXXX() {
-        DataSource bean = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).setName("RANADB")
+    public DataSource dataSourceEmbeded() {
+        DataSource bean = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).setName("TESTMEMDB")
                 .addScript("classpath:schema.sql").build();
         return bean;
     }

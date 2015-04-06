@@ -8,3 +8,6 @@ Standalone spring 4 project in Maven.
 4. git branch --set-upstream-to=origin/master master
 5. git pull
 6. git push --set-upstream origin master
+
+to Run :
+mvn exec:java -Dexec.mainClass="com.rdas.main.SpringApplication" -Dexec.args="arg0"

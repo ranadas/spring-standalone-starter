@@ -1,37 +1,33 @@
 package com.rdas.main;
 
+import java.sql.SQLException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.rdas.configurations.AppConfig;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.rdas.services.HelloWorldMessage;
 
 /**
- * Application Entry point
+ * Application Entry point. This Doesn't have to be a component as such.
+ * It is now so that we can get the bean to execute the sample method, sayHello().
  * Created by rdas on 06/04/2015.
  */
 @Component
 public class SpringApplication {
 
-    @Autowired
-    @Qualifier("embeddedDS")
-    public void setSpiedDB(DataSource spiedDB) {
-        dataSource=spiedDB;
-    }
+    private static final Logger logger = LoggerFactory.getLogger(SpringApplication.class);
 
-    private DataSource dataSource;
+    @Autowired
+    private HelloWorldMessage helloWorldMessage;
 
     public void sayHello() throws SQLException {
-        System.out.println("\t In SpringApplication Method !");
-
+        logger.debug("\t In SpringApplication sayHello Method !");
+        logger.info(helloWorldMessage.sayHello());
     }
 
     public static void main(String[] args) throws SQLException {
