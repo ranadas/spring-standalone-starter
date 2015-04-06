@@ -2,7 +2,7 @@
 Standalone spring 4 project in Maven.
 
 
-1.Created a new Repo in GitHub.
+1. Created a new Repo in GitHub.
 2. git remote add origin https://github.com/ranadas/spring-standalone-starter.git
 3. git remote -v
 4. git branch --set-upstream-to=origin/master master
