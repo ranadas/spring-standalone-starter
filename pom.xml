@@ -95,7 +95,15 @@
             <artifactId>fest-assert</artifactId>
             <version>1.4</version>
         </dependency>
+
+        <!-- joda time-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.7</version>
+        </dependency>
     </dependencies>
+
     <properties>
         <spring.version>4.1.4.RELEASE</spring.version>
         <junit.version>4.12</junit.version>

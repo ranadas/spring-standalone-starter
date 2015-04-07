@@ -15,7 +15,7 @@ import com.rdas.services.HelloWorldMessage;
  * Created by rdas on 03/04/2015.
  */
 @Configuration
-@ComponentScan(basePackages = { "com.rdas.services", "com.rdas.main" })
+@ComponentScan(basePackages = { "com.rdas.services", "com.rdas.main" , "com.rdas.configurations.scheduling"})
 public class AppConfig {
 
     @Bean(name = "helloWorldMessageBean")
