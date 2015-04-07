@@ -23,8 +23,8 @@ public class AppConfig {
         return new HelloWorldMessage();
     }
 
-    @Bean(name = "dbWithURL")
-    public DataSource getDataSourceOld() {
+    @Bean(name = "h2dbWithURL")
+    public DataSource getH2DataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         // com.mysql.jdbc.Driver
         dataSource.setDriverClassName("org.h2.Driver");
@@ -44,4 +44,13 @@ public class AppConfig {
         return bean;
     }
 
+    @Bean(name = "hsqldb")
+    public DataSource getHsqlDataSource() {
+        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("org.hsqldb.jdbcDriver");
+        dataSource.setUrl("jdbc:hsqldb:mem:test");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("");
+        return dataSource;
+    }
 }
