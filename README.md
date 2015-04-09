@@ -11,3 +11,10 @@ Standalone spring 4 project in Maven.
 
 to Run :
 mvn exec:java -Dexec.mainClass="com.rdas.main.SpringApplication" -Dexec.args="arg0"
+
+to use log4jdbc helper urls :
+
+https://code.google.com/p/log4jdbc/
+
+https://code.google.com/p/log4jdbc-remix/
+https://code.google.com/p/log4jdbc-log4j2/

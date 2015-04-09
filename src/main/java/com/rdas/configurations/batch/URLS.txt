@@ -1,0 +1,20 @@
+https://keyholesoftware.com/2012/06/22/introducing-spring-batch/
+https://keyholesoftware.com/2012/06/25/getting-started-with-spring-batch-part-two/
+https://keyholesoftware.com/2012/11/12/generating-large-excel-files-using-spring-batch-part-three/
+
+https://keyholesoftware.com/2012/02/23/spring-batch-unit-testing-and-mockito/
+
+https://keyholesoftware.com/2013/12/09/spring-batch-partitioning/
+
+
+simple example :
+https://github.com/borj83/spring-batch-project
+
+
+http://www.javacodegeeks.com/2015/03/spring-batch-tutorial.html
+http://www.dineshonjava.com/2012/12/spring-batch-process-with-example.html#.VSN0RBPF8gB
+http://www.concretepage.com/spring-batch-3/spring-batch-3-flatfileitemreader-flatfileitemwriter-annotation-example
+
+http://www.mkyong.com/tutorials/spring-batch-tutorial/
+
+http://www.petrikainulainen.net/spring-mvc-test-tutorial/

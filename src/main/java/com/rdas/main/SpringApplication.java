@@ -36,7 +36,9 @@ public class SpringApplication {
         // minimalSpringApp.sayHello();
 
         final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        System.out.println(applicationContext.getApplicationName());
+        logger.info(applicationContext.getApplicationName());
+        //applicationContext.getEnvironment().setActiveProfiles("dev");
+        //applicationContext.scan("com.city81");
 
         final SpringApplication minimalSpringApp = applicationContext.getBean(SpringApplication.class);
         //final Some-Other-Bean other = applicationContext.getBean(SpringApplication.class);

@@ -80,7 +80,7 @@
         <dependency>
             <groupId>org.springframework.batch</groupId>
             <artifactId>spring-batch-core</artifactId>
-            <version>3.0.2.RELEASE</version>
+            <version>${spring.batch.version}</version>
         </dependency>
 
         <!-- testing -->
@@ -106,18 +106,27 @@
             <artifactId>joda-time</artifactId>
             <version>2.7</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
     </dependencies>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.1.4.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
         <commons.lang.version>3.3.2</commons.lang.version>
         <log4j.version>4.12</log4j.version>
         <slf4j.version>1.7.2</slf4j.version>
         <ch.qos.logback.version>0.9.24</ch.qos.logback.version>
+        <spring.batch.version>3.0.2.RELEASE</spring.batch.version>
     </properties>
 
     <build>
+        <finalName>${artifactId}-${version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

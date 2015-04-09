@@ -5,17 +5,22 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import com.rdas.services.HelloWorldMessage;
+import org.springframework.jdbc.datasource.init.DatabasePopulator;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 /**
  * Created by rdas on 03/04/2015.
  */
 @Configuration
-@ComponentScan(basePackages = { "com.rdas.services", "com.rdas.main" , "com.rdas.configurations.scheduling"})
+@ComponentScan(basePackages = { "com.rdas.services", "com.rdas.main", "com.rdas.configurations.scheduling", "com.rdas.configurations.batch" })
 public class AppConfig {
 
     @Bean(name = "helloWorldMessageBean")
@@ -34,10 +39,20 @@ public class AppConfig {
         dataSource.setUsername("sa");
         // P@ssw0rd
         dataSource.setPassword("");
+        DatabasePopulatorUtils.execute(createDatabasePopulator(), dataSource);
         return dataSource;
     }
 
+    private DatabasePopulator createDatabasePopulator() {
+        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+        databasePopulator.setContinueOnError(true);
+        databasePopulator.addScript(new ClassPathResource("schema.sql"));
+        return databasePopulator;
+    }
+
+    //TODO @Profile("dev") : Find out how this works !!!!
     @Bean(name = "embeddedDS")
+    @Primary
     public DataSource dataSourceEmbeded() {
         DataSource bean = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).setName("TESTMEMDB")
                 .addScript("classpath:schema.sql").build();
