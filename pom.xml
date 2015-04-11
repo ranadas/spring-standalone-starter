@@ -23,6 +23,7 @@
 
     <dependencies>
 
+        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -36,11 +37,21 @@
             <artifactId>spring-beans</artifactId>
         </dependency>
 
-        <!-- jdbc -->
+        <!-- spring batch core-->
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+            <version>${spring.batch.version}</version>
+        </dependency>
+
+        <!-- spring jdbc-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
+
+
+        <!-- database drivers -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -55,6 +66,11 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>2.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-cassandra</artifactId>
+            <version>1.2.0.RELEASE</version>
         </dependency>
 
         <!-- slf4j -->
@@ -84,13 +100,6 @@
             <version>${ch.qos.logback.version}</version>
         </dependency>
 
-        <!-- spring batch core-->
-        <dependency>
-            <groupId>org.springframework.batch</groupId>
-            <artifactId>spring-batch-core</artifactId>
-            <version>${spring.batch.version}</version>
-        </dependency>
-
         <!-- testing -->
         <dependency>
             <groupId>junit</groupId>
@@ -114,10 +123,18 @@
             <version>2.7</version>
         </dependency>
 
+        <!-- commoms -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.3.2</version>
+        </dependency>
+
+        <!-- Guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
         </dependency>
     </dependencies>
 
