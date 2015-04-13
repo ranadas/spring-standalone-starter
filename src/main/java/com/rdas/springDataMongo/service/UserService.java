@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import com.mongodb.MongoException;
+import com.rdas.springDataMongo.mongo.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class UserService {
     @Autowired
     @Qualifier("mongoTemplate")
     private MongoTemplate mongoTemplate;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostConstruct
     public void initIt() throws Exception {
@@ -51,6 +55,7 @@ public class UserService {
         List<User> results = mongoTemplate.findAll(User.class);
         logger.info("Total number in database: {}", results.size());
 
+        logger.debug("\ncount using repo: {} ", userRepository.findAll().size());
     }
 
     /**
