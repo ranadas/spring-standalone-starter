@@ -1,8 +1,13 @@
 package com.rdas.services.scheduler;
 
+import com.rdas.springDataMongo.model.User;
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +18,9 @@ import org.springframework.stereotype.Component;
 public class MessageScheduler {
 
     private static final Logger logger = LoggerFactory.getLogger(MessageScheduler.class);
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     /**
      * Executed every 5 secs and prints the date time.

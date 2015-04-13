@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.rdas.configurations.AppConfig;
 import com.rdas.services.HelloWorldMessage;
+import com.rdas.springDataMongo.service.UserService;
 
 /**
  * Application Entry point. This Doesn't have to be a component as such.
@@ -25,16 +26,17 @@ public class SpringApplication {
     @Autowired
     private HelloWorldMessage helloWorldMessage;
 
+    @Autowired
+    private UserService userService;
+
     public void sayHello() throws SQLException {
         logger.debug("\t In SpringApplication sayHello Method !");
         logger.info(helloWorldMessage.sayHello());
+        userService.isDbValid();
     }
 
     public static void main(String[] args) throws SQLException {
         // final ApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_PATH);
-        // final SpringApplication minimalSpringApp = context.getBean(SpringApplication.class);
-        // minimalSpringApp.sayHello();
-
         final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         logger.info(applicationContext.getApplicationName());
         //applicationContext.getEnvironment().setActiveProfiles("dev");

@@ -11,7 +11,8 @@ import com.rdas.services.HelloWorldMessage;
  */
 @Configuration
 @ComponentScan(basePackages = { "com.rdas.services", "com.rdas.main", "com.rdas.configurations.scheduling",
-        "com.rdas.configurations.batch", "com.rdas.configurations.database" })
+        "com.rdas.configurations.batch", "com.rdas.configurations.database",
+        "com.rdas.springDataMongo"})
 public class AppConfig {
 
     @Bean(name = "helloWorldMessageBean")
